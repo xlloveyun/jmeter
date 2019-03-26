@@ -255,6 +255,14 @@ public final class NewDriver {
                 e.printStackTrace(); // NOSONAR No logger at this step
                 System.err.println("JMeter home directory was detected as: "+JMETER_INSTALLATION_DIRECTORY); // NOSONAR Intentional System.err use
             }
+            try {
+	        		Class<?> startRest = loader.loadClass("org.apache.jmeter.visualizers.backend.rest.ResultsServer");
+	        		Object instance1 = startRest.newInstance();
+	        		Method startup1 =startRest.getMethod("startServer");
+	            startup1.invoke(instance1);
+	        } catch (Throwable e) {
+	        		e.printStackTrace();
+	        }
         }
     }
 
