@@ -91,7 +91,7 @@ public class HttpServer extends Thread {
 		if(Objects.nonNull(ssc)) {
 			map.put("max", ssc.getMax());
 			map.put("min", ssc.getMin());
-			map.put("avg", ssc.getAvgPageBytes());
+			map.put("avg", ssc.getMean());
 			map.put("label", ssc.getLabel());
 			map.put("throughput", ssc.getMaxThroughput());
 			map.put("received", ssc.getKBPerSecond());
