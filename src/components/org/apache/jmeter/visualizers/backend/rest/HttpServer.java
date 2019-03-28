@@ -43,6 +43,10 @@ public class HttpServer extends Thread {
 	
 	private void response(String key) {
 		StringBuffer sb = new StringBuffer();
+		if("stopJmeter".equals(key)) {
+			ResultsServer.stopListen();
+			return;
+		}
 		if (Objects.isNull(key) || key.isEmpty() || "/".equals(key)) {
 			sb.append(JSONObject.toJSONString(toAllMap(RestBackendListener.tableRows)));
 		} else {
