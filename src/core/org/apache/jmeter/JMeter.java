@@ -1456,7 +1456,6 @@ public class JMeter implements JMeterPlugin {
                             for(JMeterEngine engine : engines) {
                                 engine.stopTest(false);
                             }
-                            ResultsServer.stopListen();
                             break;
                         case "HeapDump" :
                             HeapDumper.dumpHeap();
