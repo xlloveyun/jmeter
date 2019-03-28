@@ -25,6 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.net.Authenticator;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -100,6 +101,7 @@ import org.apache.jmeter.threads.RemoteThreadsListenerTestElement;
 import org.apache.jmeter.util.BeanShellInterpreter;
 import org.apache.jmeter.util.BeanShellServer;
 import org.apache.jmeter.util.JMeterUtils;
+import org.apache.jmeter.visualizers.backend.rest.ResultsServer;
 import org.apache.jorphan.collections.HashTree;
 import org.apache.jorphan.collections.SearchByClass;
 import org.apache.jorphan.gui.ComponentUtil;
@@ -1456,6 +1458,7 @@ public class JMeter implements JMeterPlugin {
                             for(JMeterEngine engine : engines) {
                                 engine.stopTest(false);
                             }
+                            ResultsServer.stopListen();
                             break;
                         case "HeapDump" :
                             HeapDumper.dumpHeap();
